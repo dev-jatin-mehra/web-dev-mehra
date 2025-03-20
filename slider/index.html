@@ -4,25 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Image Slider</title>
+    <style>
+        /* Centering Everything */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        /* Slider Container */
+        .slider {
+            height: 300px;
+            width: 400px;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease-in-out;   
+        }
+    </style>
 </head>
 
 <body>
     <h2>Image Slider</h2>
+
+    <!-- Slider -->
     <div class="slider">
         <img src="the-chaffins-1KDauE4oF0o-unsplash.jpg" alt="Image Slider" id="slider">
     </div>
-    
+
+    <!-- Navigation Buttons -->
     <div class="buttons">
-        <button onclick="pre()">previous</button>
-        <button onclick="next()">next</button>
+        <button onclick="prev()">Previous</button>
+        <button onclick="next()">Next</button>
     </div>
+
     <script>
         let images = [
-        "mountain.jpg",
-        "nature.jpg",
-        "ocean.jpg"
-        ]
+            "the-chaffins-1KDauE4oF0o-unsplash.jpg",
+            "mountain.jpg",
+            "nature.jpg",
+            "ocean.jpg"
+        ];
+        let idx = 0;
+
+        function showImage(i) {
+            idx = (i + images.length) % images.length;
+            let slider = document.getElementById("slider").src = images[idx];
+        }
+
+        function next() {
+            showImage(idx + 1);
+        }
+
+        function prev() {
+            showImage(idx - 1);
+        }
     </script>
 </body>
 
