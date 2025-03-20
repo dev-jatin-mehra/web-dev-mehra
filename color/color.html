@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>COlor</title>
+    <style>
+        .color {
+            height: 200px;
+            width: 200px;
+            border: 3px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="color"></div>
+    <button id="btn-1" onclick="change('greenyellow')">Red</button>
+    <button id="btn-2" onclick="change('blue')">Green</button>
+    <button id="btn-3" onclick="change('purple')">Blue</button>
+</body>
+<script>
+    let change = (color) => {
+        document.querySelector('.color').style.backgroundColor = color
+    }
+</script>
+
+</html>

@@ -1,16 +1,33 @@
-.container {
-  height: 32.5em;
+body {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  background-color: greenyellow;
 }
 
-.box {
-  height: 100px;
-  width: 100px;
-  background-color: greenyellow;
-  box-shadow: 5px 5px 10px black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.container {
+  height: 200px;
+  width: 200px;
+  background-color: aqua;
+  box-shadow: 5px 5px 10px red;
+  border: 10px solid;
+  border-image-source: linear-gradient(to right, red, yellow);
+  border-image-slice: 1;
+  animation: anim 0.5s infinite;
+}
+
+@keyframes anim {
+  0% {
+    border-image-source: linear-gradient(to right, purple, greenyellow);
+  }
+  33% {
+    border-image-source: linear-gradient(to right, aqua, lime);
+  }
+  50% {
+    border-image-source: linear-gradient(to right, blue, indigo);
+  }
+  100% {
+    border-image-source: linear-gradient(to right, pink, orange);
+  }
 }
