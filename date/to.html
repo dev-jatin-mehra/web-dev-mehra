@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <title>digital</title>
+</head>
+
+<body>
+    <h3>Digital Clock</h3>
+    <div class="clock" id="clock">
+        00:00:00
+    </div>
+
+    <script>
+        let update = () => {
+            document.getElementById('clock').innerText = new Date().toLocaleTimeString();
+        }
+        setInterval(update, 1000)
+        update();
+    </script>
+</body>
+
+</html>

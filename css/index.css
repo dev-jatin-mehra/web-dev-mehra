@@ -1,0 +1,57 @@
+h2 {
+  color: red;
+  font-family: Arial, sans-serif;
+  font-size: xx-large;
+}
+
+p {
+  color: blue;
+  font-weight: 300;
+  font-family: cursive;
+  font-size: large;
+}
+
+#btn {
+  background-color: greenyellow;
+  color: black;
+  font-weight: 500;
+  padding: 10px 20px;
+  margin: 20px 20px 20px 20px;
+  box-shadow: 5px 5px 10px rgba(255, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+#btn:hover {
+  background-color: aqua;
+}
+
+#pahad {
+  margin-left: 150px;
+  border-radius: 20px;
+  box-shadow: 8px 8px 5px #695252e8;
+}
+
+.container {
+  height: 200px;
+  width: 200px;
+  border: 50px solid black;
+  margin-left: 500px;
+  border-image-source: linear-gradient(to right, red, yellow);
+  border-image-slice: 1;
+  animation: borderanim 0.5s infinite;
+}
+
+@keyframes borderanim {
+  0% {
+    border-image-source: linear-gradient(to right, red, yellow);
+  }
+  33% {
+    border-image-source: linear-gradient(to right, orange, pink);
+  }
+  66% {
+    border-image-source: linear-gradient(to right, blue, green);
+  }
+  100% {
+    border-image-source: linear-gradient(to right, aqua, red);
+  }
+}

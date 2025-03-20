@@ -1,0 +1,16 @@
+.container {
+  height: 32.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+  background-color: greenyellow;
+  box-shadow: 5px 5px 10px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
