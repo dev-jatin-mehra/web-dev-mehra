@@ -1,97 +1,113 @@
 <html>
-  <head>
-    <link rel="stylesheet" href="form.css" />
-    <title>form</title>
-  </head>
-  <body>
-    <h2>Student Form</h2>
-    <form id="studentForm">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
-      <br /><br />
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
-      <br /><br />
+<head>
+  <title>form</title>
+</head>
 
-      <label for="phone">Phone:</label>
-      <input type="number" name="phone" id="phone" required />
-      <br /><br />
+<body>
+  <h2>Student Form</h2>
+  <form id="studentForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
+    <br /><br />
 
-      <label for="dob">Date of Birth:</label>
-      <input type="date" id="dob" name="dob" required />
-      <br /><br />
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+    <br /><br />
 
-      <label>Gender:</label>
-      <input type="radio" value="male" name="gender" id="male" required />
-      <label for="male">Male</label>
-      <input type="radio" value="female" name="gender" id="female" required />
-      <label for="female">Female</label>
-      <br /><br />
+    <label for="phone">Phone:</label>
+    <input type="number" name="phone" id="phone" required />
+    <br /><br />
 
-      <label for="course">Select Course:</label>
-      <select name="course" id="course">
-        <option value=""></option>
-        <option value="btech">B.Tech</option>
-        <option value="bba">BBA</option>
-        <option value="bsc">B.Sc</option>
-        <option value="bca">B.Pharma</option>
-      </select>
-      <br /><br />
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required />
+    <br /><br />
 
-      <label for="address">Address</label>
-      <input type="text" name="address" id="address" required />
-      <br /><br />
+    <label>Gender:</label>
+    <input type="radio" value="male" name="gender" id="male" required />
+    <label for="male">Male</label>
+    <input type="radio" value="female" name="gender" id="female" required />
+    <label for="female">Female</label>
+    <br /><br />
 
-      <label for="pass">Password:</label>
-      <input type="password" name="pass" id="pass" required />
-      <br /><br />
+    <label for="course">Select Course:</label>
+    <select name="course" id="course">
+      <option value=""></option>
+      <option value="btech">B.Tech</option>
+      <option value="bba">BBA</option>
+      <option value="bsc">B.Sc</option>
+      <option value="bca">B.Pharma</option>
+    </select>
+    <br /><br />
 
-      <label for="cnfrm-pass">ConfirmPassword:</label>
-      <input type="password" name="cnfrm-pass" id="cnfrm-pass" required />
-      <br /><br />
+    <label for="address">Address</label>
+    <input type="text" name="address" id="address" required />
+    <br /><br />
 
-      <button id="submit">submit</button>
-    </form>
-  </body>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document
-        .getElementById("studentForm")
-        .addEventListener("submit", (evt) => {
-          evt.preventDefault();
-          let phone = document.getElementById("phone").value;
-          let pass = document.getElementById("pass").value;
-          let cnfrmpass = document.getElementById("cnfrm-pass").value;
+    <label for="pass">Password:</label>
+    <input type="password" name="pass" id="pass" required />
+    <br /><br />
 
-          if (phone.length != 10) {
-            alert("Enter 10-digit mobile number !");
-            return;
-          }
+    <label for="cnfrm-pass">ConfirmPassword:</label>
+    <input type="password" name="cnfrm-pass" id="cnfrm-pass" required />
+    <br /><br />
 
-          if (pass.length < 10) {
-            alert("Password is Weak !");
-            return;
-          }
+    <button id="submit">submit</button>
+  </form>
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document
+      .getElementById("studentForm")
+      .addEventListener("submit", (evt) => {
+        evt.preventDefault();
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let phone = document.getElementById("phone").value;
+        let pass = document.getElementById("pass").value;
+        let cnfrmpass = document.getElementById("cnfrm-pass").value;
 
-          if (pass != cnfrmpass) {
-            alert("Password Does not match");
-            return;
-          }
-          const formData = {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            dob: document.getElementById("dob").value,
-            gender: document.querySelector('input[name="gender"]:checked')
-              .value,
-            course: document.getElementById("course").value,
-          };
+        nameregex = /^[a-zA-Z]+$/
+        if (!nameregex.test(name)) {
+          alert("Enter the correct name!");
+          return;
+        }
 
-          console.log(formData);
-          alert("Check Console !");
+        emailregex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if (!emailregex.test(email)) {
+          alert("invalid mail !")
+          return;
+        }
 
-          document.getElementById("studentForm").reset();
-        });
-    });
-  </script>
+        if (phone.length != 10) {
+          alert("Enter 10-digit mobile number !");
+          return;
+        }
+
+        if (pass.length < 10) {
+          alert("Password is Weak !");
+          return;
+        }
+
+        if (pass != cnfrmpass) {
+          alert("Password Does not match");
+          return;
+        }
+        const formData = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          dob: document.getElementById("dob").value,
+          gender: document.querySelector('input[name="gender"]:checked')
+            .value,
+          course: document.getElementById("course").value,
+        };
+
+        console.log(formData);
+        alert("Check Console !");
+
+        document.getElementById("studentForm").reset();
+      });
+  });
+</script>
+
 </html>
